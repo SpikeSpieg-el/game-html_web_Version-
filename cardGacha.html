@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="stylesGacha.css">
+<title>Симулятор выбивания наград из сундука </title>
+</head>
+<body>
+    <h1>Симулятор выбивания наград из сундука</h1>
+    <button onclick="openChest()">Открыть сундук</button>
+    
+    <h2>Фильтр коллекции</h2>
+    <select id="filterDropdown" onchange="applyFilter()">
+        <option value="all">Все карты</option>
+        <option value="ascending">По возрастанию количества</option>
+        <option value="descending">По убыванию количества</option>
+        <option value="descendingPower">По убыванию силы</option>
+        <option value="common">Обычная</option>
+        <option value="rare">Редкая</option>
+        <option value="epic">Эпическая</option>
+        <option value="legendary">Легендарная</option>
+        <option value="legendary-epic-rare-common">От самой редкой</option>
+        
+    </select>
+    <h2>Ваша коллекция <span id="collectionCounter">(0 / ${rewards.filter(reward => reward.type === "Карта").length})</span></h2>
+    <div id="collection">
+        
+    </div>
+    <div class="rrr">
+    <button onclick="clearCollection()">Очистить коллекцию</button>
+    
+    </div>
+
+
+    <!-- Popup для отображения наград -->
+    <div id="rewardPopup" class="popup">
+        <h2>Награды из сундука</h2>
+        <div id="rewardItems"></div>
+        <button onclick="claimRewards()">Забрать награду</button>
+    </div>
+
+    <!-- Второй Popup для отображения карты поближе -->
+    <div id="cardDetailsPopup" class="popup">
+        <h2>Подробная информация о карте</h2>
+        <div id="cardDetails"></div>
+        <button onclick="closeCardDetails()">Закрыть</button>
+        
+
+    </div>
+    <!-- Подключение скрипты  -->  
+<script src="skriptGacha.js"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Idle Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #resources {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .resource-container {
+            flex-basis: 100%;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .resource-container:hover {
+            transform: scale(1.05);
+        }
+        .resource-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .progress-bar {
+            width: 0;
+            height: 20px;
+            background-color: green;
+            transition: width 0.3s ease-in-out;
+        }
+        .upgrade-button {
+            transition: background-color 0.3s ease-in-out;
+        }
+        .upgrade-button:hover {
+            background-color: lightgreen;
+        }
+        @media (min-width: 600px) {
+            .resource-container {
+                flex-basis: 48%;
+            }
+        }
+        @media (min-width: 900px) {
+            .resource-container {
+                flex-basis: 30%;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    
+    <div id="resources">
+        <div class="resource-container">
+            <div id="resource1">Resource 1: 0</div>
+            <div id="timer1">Time left: 3</div>
+            <button id="upgrade1" disabled>Upgrade Resource 1</button>
+        </div>
+        <div class="resource-container">
+            <div id="resource2">Resource 2: 0</div>
+            <div id="timer2">Time left: 6</div>
+            <button id="upgrade2" disabled>Upgrade Resource 2</button>
+        </div>
+        <div class="resource-container">
+            <div id="resource3">Resource 3: 0</div>
+            <div id="timer3">Time left: 9</div>
+            <button id="upgrade3" disabled>Upgrade Resource 3</button>
+        </div>
+        <div class="resource-container">
+            <div id="resource4">Resource 4: 0</div>
+            <div id="timer4">Time left: 12</div>
+            <button id="upgrade4" disabled>Upgrade Resource 4</button>
+        </div>
+        <div class="resource-container">
+            <div id="resource5">Resource 5: 0</div>
+            <div id="timer5">Time left: 15</div>
+            <button id="upgrade5" disabled>Upgrade Resource 5</button>
+        </div>
+    </div>
+    <div id="experience">Experience: 0</div>
+    <div id="level">Level: 0</div>
+    <div id="level-bar">
+        <div class="progress-bar"></div>
+    </div>
+    <div id="threejs-container">
+        
+    </div>
+   
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Create a scene
+        const scene = new THREE.Scene();
+
+        // Create a camera
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 500);
+        camera.position.z = 5;
+
+       
+        // Create a renderer
+const renderer = new THREE.WebGLRenderer();
+const width = window.innerWidth * 0.2; // Adjust the width as needed
+const height = window.innerHeight * 0.2; // Adjust the height as needed
+renderer.setSize(width, height);
+document.getElementById('threejs-container').appendChild(renderer.domElement);
+
+
+        // Create cubes
+        const geometry = new THREE.BoxGeometry();
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const cube1 = new THREE.Mesh(geometry, material);
+        const cube2 = new THREE.Mesh(geometry, material);
+        const cube3 = new THREE.Mesh(geometry, material);
+
+        // Set positions for each cube
+        cube1.position.x = -2;
+        cube2.position.x = 0;
+        cube3.position.x = 2;
+
+        // Add cubes to the scene
+        scene.add(cube1);
+        scene.add(cube2);
+        scene.add(cube3);
+
+        // Create a render function
+        function animate() {
+            requestAnimationFrame(animate);
+            cube1.rotation.x += 0.01;
+            cube1.rotation.y += 0.01;
+            cube2.rotation.x += 0.01;
+            cube2.rotation.y += 0.01;
+            cube3.rotation.x += 0.01;
+            cube3.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+
+    <script>
+        let resources = [0, 0, 0, 0, 0];
+        let experience = 0;
+        let level = 0;
+        let timers = [3, 6, 9, 12, 15];
+        let upgrades = [0, 0, 0, 0, 0];
+
+        function updateResources() {
+            for (let i = 0; i < resources.length; i++) {
+                document.getElementById(`resource${i + 1}`).innerText = `Resource ${i + 1}: ${resources[i]}`;
+            }
+        }
+
+        function updateExperience() {
+            document.getElementById('experience').innerText = `Experience: ${experience}`;
+        }
+
+        function updateLevel() {
+            document.getElementById('level').innerText = `Level: ${level}`;
+        }
+
+        function updateTimers() {
+            for (let i = 0; i < timers.length; i++) {
+                timers[i]--;
+                document.getElementById(`timer${i + 1}`).innerText = `Time left: ${timers[i]}`;
+                if (timers[i] === 0) {
+                    gainResources(i);
+                    timers[i] = 3 * (i + 1);
+                }
+            }
+        }
+
+        function updateProgressBar() {
+            let progressBar = document.querySelectorAll('.progress-bar');
+            progressBar.forEach((bar, index) => {
+                bar.style.width = `${(experience / 20) * 100}%`;
+            });
+        }
+
+        function gainResources(resourceIndex) {
+            resources[resourceIndex] += 1 + upgrades[resourceIndex];
+            if (resourceIndex === 4) {
+                experience += resources[4];
+                if (experience >= 20) {
+                    experience -= 20;
+                    level++;
+                }
+            }
+            updateResources();
+            updateExperience();
+            updateLevel();
+            updateProgressBar();
+            updateUpgradeButtons();
+        }
+
+        function updateUpgradeButtons() {
+            document.querySelectorAll('.upgrade-button').forEach((button, index) => {
+                switch (index) {
+                    case 0:
+                        button.disabled = resources[4] < 10;
+                        break;
+                    case 1:
+                        button.disabled = resources[0] < 10 || level < 1;
+                        break;
+                    case 2:
+                        button.disabled = resources[1] < 20 || level < 1;
+                        break;
+                    case 3:
+                        button.disabled = resources[2] < 20 || level < 1;
+                        break;
+                    case 4:
+                        button.disabled = level < 1 || resources[3] < 10;
+                        break;
+                    default:
+                        break;
+                }
+            });
+        }
+
+        function upgradeResource(resourceIndex) {
+            let upgradeCost;
+            switch (resourceIndex) {
+                case 0:
+                    upgradeCost = resources[4] >= 10 ? 10 : 0;
+                    if (upgradeCost > 0) {
+                        upgrades[0]++;
+                        resources[4] -= upgradeCost;
+                    }
+                    break;
+                case 1:
+                    upgradeCost = resources[0] >= 10 ? 10 : 0;
+                    if (upgradeCost > 0) {
+                        upgrades[1]++;
+                        resources[0] -= upgradeCost;
+                    }
+                    break;
+                case 2:
+                    upgradeCost = resources[1] >= 20 ? 20 : 0;
+                    if (upgradeCost > 0) {
+                        upgrades[2]++;
+                        resources[1] -= upgradeCost;
+                    }
+                    break;
+                case 3:
+                    upgradeCost = resources[2] >= 20 ? 20 : 0;
+                    if (upgradeCost > 0) {
+                        upgrades[3]++;
+                        resources[2] -= upgradeCost;
+                    }
+                    break;
+                case 4:
+                    upgradeCost = level >= 1 ? 10 : 0;
+                    if (upgradeCost > 0) {
+                        upgrades[4]++;
+                        level--;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            updateResources();
+            updateUpgradeButtons();
+        }
+
+        document.querySelectorAll('.upgrade-button').forEach((button, index) => {
+            button.addEventListener('click', () => {
+                upgradeResource(index);
+            });
+        });
+
+        setInterval(updateTimers, 1000);
+    </script>
+    
+</body>
+</html>

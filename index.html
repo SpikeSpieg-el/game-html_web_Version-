@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="baseStyle/styles.css">
+    <link rel="stylesheet" href="baseStyle/stylesGacha.css">
+    <title>Clicker Game</title>
+    <link rel="icon" href="cating.png" type="image/png">
+    
+  
+</head>
+<body>
+    <div id="sidebar">
+        <a href="My Site.html">✪ Об игре</a>
+        <a href="https://forms.gle/v2K1fvzz7wLr7SYdA" target="_blank">✪ Пройди небольшой опрос чтобы оставить отзыв</a>
+        <a href="https://github.com/SpikeSpieg-el/game-html" target="_blank">✪ GitHub</a>
+        <a href ="Index_time_kill.html">Тайм киллер</a>
+         <a href ="скролл/test_scrol2.html">Маги</a>
+         <a href="gacha/1gacha.html"> Открыть контейнер </a>
+         <a href="cardGacha.html"> Карты таро </a>
+        <a href="Idle.html"> тестировка идле </a>
+        <a href="sait/page0.html"> тестировка сайта </a>
+        <a href="revard/revard.html"> AFK System </a>
+        <a href="card_game_wtf/card_gameeee.html"> cardFight </a> 
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    </div>
+
+    
+
+    <div class="clicker-container">
+        <div class="TopAppBar">
+        <div class="name">
+            
+        <!--<div class="image-container">
+        <img class="clipped-image" src="" alt="bd1"></div> -->
+
+            <div class="title">
+                <div id="main">
+                    <button class="openbtn" onclick="toggleNav()">☰</button>
+                    </div>
+               <h1>Clicker Game </h1>
+            </div> 
+        </div>
+        <div class="top">
+
+            <!-- Добавляем кнопку сохранения -->
+            <button onclick="saveGame()">Save Game</button>
+            <!-- Добавляем кнопку загрузки -->
+            <button onclick="loadGame()">Load Game</button>
+        </div>
+        <div class="Count">
+            <h2>
+            
+                
+                
+                    Посеселение Cat: <img src="333.png" alt="cat" class="img-sizeCAT_top">
+                     <span id="catCount"> 5 </span>
+                
+                
+                <span class="first-part">Gold: <span id="goldCount">10</span></span>
+                <span class="first-part">For click: <span id="clickValue">0</span></span>
+                <span class="second-part">Clicks count: <span id="clickCount">0</span></span>
+      
+            </h2>
+        </div>
+    </div>
+        
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    <div id="upgradeContainer">
+            <!-- Column 1: Апгрейды -->
+        <div class="upgradeColumn" id="column1">
+         
+            <div>
+                <div class="pod1">  
+                    <div class="hidden1">
+                        <div class="catIMG">
+                            <button id="upgrade1" onclick="buyUpgrade1()">Upgrade <span>+1</span> Cost: <span class="upgradeCost1" id="upgradeCost1">20</span>
+                                <div class="progress-container">
+                                    <div class="progress-bar-wrapper">
+                                        <div class="progress-bar" id="upgradeProgress1"></div>
+                                    </div>
+                                </div>
+                            </button>
+                            
+                        </div>
+                    </div>
+                    
+        
+                <div class="hidden2">
+                    <div class="catIMG">
+                    <button id="upgrade2" onclick="buyUpgrade2()">
+                        Upgrade <span>+2</span> Cost: <span class="upgradeCost" id="upgradeCost2">200</span>
+                        <div class="progress-container">
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" id="upgradeProgress2"></div>
+                            </div>
+                        </div>
+                    </button>
+                    
+                </div>
+                </div>
+        
+                <div class="hidden3">
+                    <div class="catIMG">
+                    <button id="upgrade3" onclick="buyUpgrade3()">
+                        Upgrade <span>+5</span> Cost: <span class="upgradeCost" id="upgradeCost3">500</span>
+                        <div class="progress-container">
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" id="upgradeProgress3"></div>
+                            </div>
+                        </div>
+                    </button>
+                    
+                    </div>
+                </div>
+            
+            
+                <div class="hidden4">
+                    <button id="upgrade4" onclick="buyUpgrade4()">
+                        Upgrade <span>+10</span> Cost: <span class="upgradeCost" id="upgradeCost4">1,000</span>
+                        <div class="progress-container">
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" id="upgradeProgress4"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+        
+                <div class="hidden5">
+                    <button id="upgrade5" onclick="buyUpgrade5()">
+                        Upgrade <span>+20</span>Cost: <span class="upgradeCost" id="upgradeCost5">3,000</span>
+                        <div class="progress-container">
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" id="upgradeProgress5"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div> 
+         
+    
+            <div class="pod1"> 
+                <div class="hidden6">
+                    <button id="upgrade6" onclick="buyUpgrade6()">
+                        Upgrade <span>+50</span>Cost: <span class="upgradeCost" id="upgradeCost6">5,000</span>
+                        <div class="progress-container">
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" id="upgradeProgress6"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                 <div class="hidden14">
+                    <button id="upgrade14" onclick="buyUpgrade14()">
+                        Upgrade <span>+100</span>Cost: <span class="upgradeCost" id="upgradeCost14">10,000</span>
+                        <div class="progress-container">
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" id="upgradeProgress14"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                 <div class="hidden15">
+                    <button id="upgrade15" onclick="buyUpgrade15()">
+                        Upgrade <span>+200</span>Cost: <span class="upgradeCost" id="upgradeCost15">20,000</span>
+                        <div class="progress-container">
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" id="upgradeProgress15"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                 <div class="hidden16">
+                    <button id="upgrade16" onclick="buyUpgrade16()">
+                        Upgrade <span>+500</span>Cost: <span class="upgradeCost" id="upgradeCost16">50,000</span>
+                        <div class="progress-container">
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" id="upgradeProgress16"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                 <div class="hidden17">
+                    <button id="upgrade17" onclick="buyUpgrade17()">
+                        Upgrade <span>+1,000</span>Cost: <span class="upgradeCost" id="upgradeCost17">100,000</span>
+                        <div class="progress-container">
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" id="upgradeProgress17"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            
+                <div class="hidden18">
+                    <button id="upgrade18" onclick="buyUpgrade18()">
+                        Upgrade <span>+2,000</span>Cost: <span class="upgradeCost" id="upgradeCost18">200,000</span>
+                        <div class="progress-container">
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" id="upgradeProgress18"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                <div class="hidden19">
+                    <button id="upgrade19" onclick="buyUpgrade19()">
+                        Upgrade <span>+5,000</span>Cost: <span class="upgradeCost" id="upgradeCost19">500,000</span>
+                        <div class="progress-container">
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" id="upgradeProgress19"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                <div class="hidden20">
+                    <button id="upgrade20" onclick="buyUpgrade20()">
+                        Upgrade <span>+10,000</span>Cost: <span class="upgradeCost" id="upgradeCost20">1,000,000</span>
+                        <div class="progress-container">
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" id="upgradeProgress20"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                <div class="hidden24">
+                    <button id="upgrade24" onclick="buyUpgrade24()">
+                        Upgrade <span>100,000</span>Cost: <span class="upgradeCost" id="upgradeCost24">10,000,000</span>
+                        <div class="progress-container">
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" id="upgradeProgress24"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            </div>
+            
+            
+        </div>
+            <!-- Column 2: Постройки -->
+            <div class="upgradeColumn" id="column2">
+                <div class="hidden9">
+                    
+                    <button id="upgrade9" onclick="buyUpgrade9()" >
+                        <div class="up9">
+                        <div class="TextComplex">
+                        <div class="TextHad">Поле</div>
+                        <div сlass="TextMid">Стоимость: <span class="upgradeCost9" id="upgradeCost9">15</span></div>
+                        <div сlass="TextMid"><a>Бонус +1.5</a></div>
+                        <div class="TextMid">Cбор +<span id ="upgradeResourceIncrease">0.1</span></div>
+
+                        
+                        </div>
+                        <div class="imgInBild"> <img src="Pole.png" alt="acat" class="img-sizeCAT"> </div>
+                        </div>
+                        <div сlass="TextMid"><span id="wheatText">Пшено:</span><a id="wheatTotalCount">0</a></div>
+
+                        <div id="progressBarContainerWheat">
+                        <div id="progressBarWheat"></div>
+
+                            </div>
+                    </button>
+                </div>
+                
+                <div class="hidden10">
+                    <button id="upgrade10" onclick="buyUpgrade10()">
+                        <div class="up10">
+                            <div class="TextComplex">
+                                <div class="TextHad">Лесопилка</div>
+                                <div сlass="TextMid">Стоимость: <span class="upgradeCost10" id="upgradeCost10">15</span></div>
+                                <div сlass="TextMid"><a>Нужно 10 пшена</a></div>
+                                <div class="TextMid">Cбор +<span id ="upgradeResourceIncrease_wood">0.1</span></div>
+                                
+                            </div>
+                            <div class="imgInBild"> <img src="forest_pilka.png" alt="acat" class="img-sizeCAT"></div>
+                           </div> 
+                           <div сlass="TextMid"> Дерево <a id="woodTotalCount">0</a></div>
+
+                           <div id="progressBarContainerWood">
+                            <div id="progressBarWood"></div>
+    
+                                </div>                      
+                    </button>
+                </div>
+
+                <div class="hidden11">
+                    <button id="upgrade11" onclick="buyUpgrade11()">
+                        <div class="up11">
+                        <div class="TextComplex">
+                            <div class="TextHad">Каменоломня</div>
+                            <div сlass="TextMid">Стоимость: <span class="upgradeCost11" id="upgradeCost11">15</span></div>
+                            <div сlass="TextMid">Нужно 10 пшена </div>
+                            <div сlass="TextMid">и 5 дерева</div>
+                            <div class="TextMid">Cбор +<span id ="upgradeResourceIncrease_stone">0.1</span></div>
+                            
+                         </div>
+                         
+                         <div class="imgInBild"><img src="OIG.zBJ2V.png"alt="acat" class="img-sizeCAT"></div>
+                        </div>
+                        <div сlass="TextMid">Камень <a id="stoneTotalCount">0</a></div>
+                        <div id="progressBarContainerStone">
+                            <div id="progressBarStone"></div>
+    
+                                </div>  
+                    </button>
+                </div>
+                <div class="hidden13">
+                    <button id="upgrade13" onclick="buyUpgrade13()">
+                        <div class="up13">
+                        <div class="TextComplex">
+                            <div class="TextHad">Металлодобытчик</div>
+                            <div сlass="TextMid">Стоимость: <span class="upgradeCost13" id="upgradeCost13">15</span></div>
+                            <div сlass="TextMid">Нужно 20 пшено, </div>
+                            <div сlass="TextMid">15 дерево </div>
+                            <div сlass="TextMid">и 5 камень</div>
+                            <div сlass="TextMid"><a>бонус x1.2 за клик</a></div>
+                            <div сlass="TextMid">Металл <a id="metallTotalCount">0</a></div>
+                        </div>
+                    
+                    <div class="imgInBild"><img src="OIG.bFY9BU.png"alt="acat" class="img-sizeCAT"></div>
+                    
+                      </div>   
+                    </button>
+                </div>
+
+                    <div class="hidden7">
+                    <button id="upgrade7" onclick="buyUpgrade7()">
+                        <div class="up7">
+                            <div class="TextComplex">
+                                <div class="TextHad">Котики</div>
+                                <div сlass="TextMid">Стоимость: <span class="upgradeCost7" id="upgradeCost7">100</span></div>
+                                <div сlass="TextMid"> Нужно 5 пшена </div>
+                            </div>
+                         <img src="333.png" alt="acat" class="img-sizeCAT">
+                        </div>
+                    </button>
+                    </div>
+              
+                
+                <div class="hidden8">
+                    <button id="upgrade8" onclick="buyUpgrade8()">
+                        <div class="up8">
+                            <div class="TextComplex">
+                            <div class="TextHad">Амбар</div>
+                            <div сlass="TextMid">Стоимость: <span class="upgradeCost8" id="upgradeCost8">15</span></div>
+                            </div>
+                         <img src="OIG.3NJJoFBIJGj4Z.png" alt="acat" class="img-sizeCAT">
+
+                        </div>
+                    </button>
+                </div>
+
+               
+
+                
+                
+                <div class="hidden12">
+                    <button id="upgrade12" onclick="buyUpgrade12()">
+                        <div class="up8">
+                            <div class="TextComplex">
+                            <div class="TextHad">Дом</div>
+                            <div сlass="TextMid">Стоимость: <span class="upgradeCost12" id="upgradeCost12">15</span></div>
+                            <div сlass="TextMid">+ 1 золото</div>
+                            <div сlass="TextMid">Домов <a id="hoseTotalCount">0</a></div>
+                            </div>
+                        <img src="dom1.png"alt="acat" class="img-sizeCAT">
+                        </div>
+                   </button>
+                </div>
+              
+                
+            </div>
+        </div>
+            <!-- Column 3: поселение -->
+            <div class="upgradeColumn" id="column3">
+                <div class="sity" >
+                    <!--<div class="caption">
+                        Ресурсов на складе
+                        Пшено: <a id="wheatTotalCount">0</a>
+                        Дерево: <a id="woodTotalCount">0</a>
+                        Камень: <a id="stoneTotalCount">0</a>
+                        Металл: <a id="metallTotalCount">0</a>
+                    </br>
+                    </div>-->
+                    
+                        <!--<img src="OIG.3NJJoFBIJGj41Z.png" alt="acat" class="img-sity_home_one">
+                        <img  src="OIG.3NJJoFBIJGj41Z.png" alt="acat" class="img-sity_home_one">-->
+                       <div class="hiddenimg_Dom"> <a  id= "hiddenimg12">
+                    </a>
+                </div>
+                    <a  id= "hiddenimg13">
+                    </a>
+                
+                    
+                    
+                    
+                    <a id= "hiddenimg8"></a>
+                    <a id= "hiddenimg9"></a>
+                    <div>
+                        <img  src="тайлы/Слой 4.png" alt="acat" class="img-sity_tl">
+                        <a id= "hiddenimg10"></a>
+                        <img  src="тайлы/Слой 3.png" alt="acat" class="img-sity_tl_br">
+                        
+                    </div>
+                        <div>
+                            <img  src="тайлы/Слой 5.png" alt="acat" class="img-sity_tl">
+                        <a id= "hiddenimg11"></a>
+                        <img  src="тайлы/Слой 5.png" alt="acat" class="img-sity_tl">
+                    </div>
+                    
+                   
+
+                </div>
+            </div>
+        <div class="hidden21">  
+        <div id="upgradeContainer2">
+            <div class="upgradeColumn" id="column4">
+                
+                
+                
+                <div class="container">
+                    <div class="chestIMG"> 
+                        <img src="chest.jpeg" alt="chest" style="width: 90px;">
+                    </div>
+                    
+                    <button id="upgrade21" onclick="buyUpgrade21(); openContainer(3)">
+                     Cost: 1 золота <span class="upgradeCost" id="upgradeCost21"></span>
+                     Открыть контейнер (3 предмета)
+                    </button>
+                    
+                    <!-- <button onclick="openContainer(3)">Открыть контейнер (3 предмета)</button> -->
+                    <div id="containerPopup" class="container-popup">
+                        <div id="containerPopupContent" class="container-popup-content">
+                    <div id="containerInfo" class="container-info"></div>
+                    <div id="result" class="result-container"></div>
+
+   
+                    <div id="containerInfo2" class="container-info"></div>
+                    <div id="result2" class="result-container result-container5"></div>
+
+                    <div id="containerInfo3" class="container-info"></div>
+                    <div id="result3" class="result-container result-container10"></div>
+
+                    <div id="rewardInfo" class="reward-info"></div>
+                    <button id="closePopupButton">Собрать ресурсы</button>
+
+                   
+                        </div>
+                    </div>
+                </div>
+            <div class="hidden22">
+                <div class="container">
+                    <div class="chestIMG"> 
+                        <img src="chest.jpeg" alt="chest" style="width: 90px;">
+                    </div>
+                    
+                        
+                    <button id="upgrade22" onclick="buyUpgrade22(); openContainer(5)">Открыть контейнер (5 предметов)
+                        Cost: 2 золота <span class="upgradeCost" id="upgradeCost22"></span></button>
+                    </div>
+                    
+                    
+                    
+                </div>
+            <div class="hidden23">
+                <div class="container">
+                    <div class="chestIMG"> 
+                        <img src="chest.jpeg" alt="chest" style="width: 90px;">
+                    </div>
+                    
+                    <button id="upgrade23" onclick="buyUpgrade23(); openContainer(10)">Открыть контейнер (10 предметов)
+                        Cost: 3 золота <span class="upgradeCost" id="upgradeCost23"></span></button>
+                    </div>
+                    
+                </div>
+
+                <div class="hidden25">        
+                    <button id="upgrade25" onclick="buyUpgrade25(); openChest()">
+       
+                        <div class="up25">
+                            <div class="TextComplex">
+                             <div class="TextHad_cover">Открыть набор карт</div>
+                            <div сlass="TextMid">Стоимость: <span class="upgradeCost25" id="upgradeCost25">бесплатно</span></div>
+                            </div>
+                            <div class="imgInBild"> <img src="testCard/cover.png" alt="acat" class="img-size-cover"> </div>
+                            </div>
+                    </button>
+
+                    <button id="upgrade25" onclick="buyUpgrade25(); openChestOnlyOne('rare')">
+                        <div class="up25">
+                            <div class="TextComplex">
+                                <div class="TextHad_cover">Открыть набор карт</div>
+                                <div class="TextMid">Только Редкая</div>
+                                <div class="TextMid">Стоимость: <span class="upgradeCost25" id="upgradeCost25"></span></div>
+                            </div>
+                            <div class="imgInBild"> <img src="testCard/cover.png" alt="acat" class="img-size-cover"> </div>
+                        </div>
+                    </button>
+                    
+                    <button id="upgrade25" onclick="buyUpgrade25(); openChestOnlyOne('epic')">
+       
+                        <div class="up25">
+                            <div class="TextComplex">
+                             <div class="TextHad_cover">Открыть набор карт</div>
+                             <div сlass="TextMid">Только Epic</div>
+                            <div сlass="TextMid">Стоимость: <span class="upgradeCost25" id="upgradeCost25"></span></div>
+                            </div>
+                            <div class="imgInBild"> <img src="testCard/cover.png" alt="acat" class="img-size-cover"> </div>
+                            </div>
+                    </button>
+                    <button id="upgrade25" onclick="buyUpgrade25(); openChestOnlyOne('legendary')">
+                        <div class="up25">
+                            <div class="TextComplex">
+                             <div class="TextHad_cover">Открыть набор карт</div>
+                             <div сlass="TextMid">Только Legendary</div>
+                            <div сlass="TextMid">Стоимость: <span class="upgradeCost25" id="upgradeCost25"></span></div>
+                            </div>
+                            <div class="imgInBild"> <img src="testCard/cover.png" alt="acat" class="img-size-cover"> </div>
+                            </div>
+                    </button>
+                </div>
+                <!-- Popup для отображения наград -->
+        <div id="rewardPopup" class="popup">
+            <h2>Награды</h2>
+            <div id="rewardItems"></div>
+            <button onclick="claimRewards()">Забрать награду</button>
+        </div>
+    
+       
+            
+            </div>
+        </div>
+    </div>
+        <!--<div id="column5" class="column">Content for column 5
+            <div class="bodyStyleMap">
+                <div class="map" id="map"></div>
+                </div>
+                <div class="battle-modal" id="battleModal">
+                    <div class="battle-modal-content">
+                        <p>Вы попали в битву!</p>
+                        <div id="output">Битва началась!</div>
+                    <button onclick="resetGame()" style="display:none;">Играть снова</button>
+                    <div id="actions" style="display:none;">
+                        <button onclick="performAction('attack')">Атака</button>
+                        <button onclick="performAction('defend')">Блок</button>
+                        <button onclick="performAction('prepare')">Подготовка</button>
+                    </div>
+                    <div id="log"></div>
+                    
+                        <button id="continueButton">Продолжить</button> 
+                    </div>
+                </div>
+        </div>-->
+        
+    <div id="column5" class="column">
+        
+    
+        <h2>Фильтр коллекции
+    
+        <select id="filterDropdown" onchange="applyFilter()">
+            <option value="all">Все карты</option>
+            <option value="ascending">По возрастанию количества</option>
+            <option value="descending">По убыванию количества</option>
+            <option value="descendingPower">По убыванию силы</option>
+            <option value="common">Обычная</option>
+            <option value="rare">Редкая</option>
+            <option value="epic">Эпическая</option>
+            <option value="legendary">Легендарная</option>
+            <option value="legendary-epic-rare-common">От самой редкой</option>
+            
+        </select>
+    
+        </h2>Ваша коллекция <span id="collectionCounter">(0 / ${rewards.filter(reward => reward.type === "Карта").length})</span>
+        <button id="toggleCollectionBtn">Свернуть/Развернуть коллекцию</button>
+
+        <div id="collection">
+            
+        </div>
+        <div class="rrr">
+        <button onclick="clearCollection()">Очистить коллекцию</button>
+        
+        </div>
+         <!-- Второй Popup для отображения карты поближе -->
+         <div id="cardDetailsPopup" class="popup">
+            <h2>Подробная информация о карте</h2>
+            <div id="cardDetails"></div>
+            <button onclick="closeCardDetails()">Закрыть</button>
+        </div>
+    
+    </div>
+        
+         
+         
+        <div class="clickButton">
+            <div class="animatedNumber" id="animatedNumber"></div>
+            <div><span class="animated-number-container"><span id="animatedNumber"></span></span></div>
+            <button id="toggleAutoClickButton">Включить автоклик</button>
+            
+            <button class="clicker" id="clickButton" onclick="incrementClick()">Click me!</button>
+            
+            <div class="pages">
+            <span><button id="column1Btn" onclick="showColumn(1)">Upgrade<a id="upgradeMarker1" class="upgrade-marker">^</a></button></span>
+            <span><button id="column2Btn" onclick="showColumn(2)">Buildings</button></span>
+            <span><button id="column3Btn" onclick="showColumn(3)">Village</button></span>
+            <span><button id="column4Btn" onclick="showColumn(4)">Shop</button></span>
+            <button id="column5Btn" onclick="showColumn(5)">Cards</button>
+            </div>
+        
+            <div id="notifications-container">
+                <!-- Уведомления будут добавляться сюда -->
+                </div>
+            
+        </div>
+    </div>
+       
+        
+        
+        
+
+<!-- Подключение скрипты  -->  
+<!--<script src="tail.js"></script>-->
+<!-- Подключаем vkBridge до основного кода -->
+<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+<script src="baseScripts/script.js"></script>
+<script src="baseScripts/saveLoad.js"></script>            
+<script src="baseScripts/showColumn.js"></script>
+<script src="baseScripts/skriptGacha.js"></script>
+
+<!--<script src="gacha/gacha.js"></script>--> 
+
+
+
+
+</body>
+</html>
