@@ -62,19 +62,6 @@ vkBridge.send("VKWebAppInit", {})
     .catch((error) => {
         console.error('Ошибка инициализации VK Bridge:', error);
 });
-vkBridge.send('VKWebAppScroll', {
-    top: 1,
-    speed: 600
-    }) 
-    .then((data) => { 
-      if (data.top) {
-        // Окно браузера прокручено
-      }
-    })
-    .catch((error) => {
-      // Ошибка
-      console.log(error);
-    });
     vkBridge.send('VKWebAppScrollTopStart')
   .then((data) => { 
     if (data.result) {
@@ -86,7 +73,7 @@ vkBridge.send('VKWebAppScroll', {
     console.log(error);
   });
     vkBridge.send('VKWebAppShowBannerAd', {
-        banner_location: 'bottom'
+        banner_location: 'top'
         })
        .then((data) => { 
           if (data.result) {
