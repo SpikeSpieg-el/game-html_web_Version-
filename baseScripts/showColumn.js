@@ -25,11 +25,18 @@ function showColumn(columnNumber) {
                 column.style.justifyContent = 'center';
                 column.style.alignItems = 'center';
             }
-            else if (columnNumber === 3 || columnNumber === 4 || columnNumber === 5 ) {
+            else if (columnNumber === 3 || columnNumber === 5 ) {
                 column.style.flexDirection = 'column';
                 column.style.justifyContent = 'center';
                 column.style.alignItems = 'center';
             }
+            else if (columnNumber === 4) {
+                column.style.justifyContent = 'center';
+                column.style.alignItems = 'center';
+                column.style.flexDirection = 'row';
+                column.style.marginLeft = '300px';
+            }
+
 
             // Highlight the current button
             document.getElementById('column' + columnNumber + 'Btn').classList.add('highlight');

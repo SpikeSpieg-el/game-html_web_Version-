@@ -26,7 +26,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     </div>
 
-    
+
     
 
     <div class="clicker-container">
@@ -249,7 +249,8 @@
             
         </div>
             <!-- Column 2: Постройки -->
-            <div class="upgradeColumn" id="column2">
+        <div class="upgradeColumn" id="column2">
+            <div class="resurs">
                 <div class="hidden9">
                     
                     <button id="upgrade9" onclick="buyUpgrade9()" >
@@ -382,6 +383,7 @@
                 
             </div>
         </div>
+    </div>
             <!-- Column 3: поселение -->
             <div class="upgradeColumn" id="column3">
                 <div class="sity" >
@@ -428,64 +430,66 @@
             <div class="upgradeColumn" id="column4">
                 
                 
-                
+            <div class="OpenChest">
                 <div class="container">
-                    <div class="chestIMG"> 
-                        <img src="chest.jpeg" alt="chest" style="width: 90px;">
-                    </div>
-                    
-                    <button id="upgrade21" onclick="buyUpgrade21(); openContainer(3)">
-                     Cost: 1 золота <span class="upgradeCost" id="upgradeCost21"></span>
-                     Открыть контейнер (3 предмета)
-                    </button>
-                    
-                    <!-- <button onclick="openContainer(3)">Открыть контейнер (3 предмета)</button> -->
-                    <div id="containerPopup" class="container-popup">
-                        <div id="containerPopupContent" class="container-popup-content">
-                    <div id="containerInfo" class="container-info"></div>
-                    <div id="result" class="result-container"></div>
+                        <div class="chestIMG"> 
+                            <img src="chest.jpeg" alt="chest" style="width: 90px;">
+                        </div>
 
-   
-                    <div id="containerInfo2" class="container-info"></div>
-                    <div id="result2" class="result-container result-container5"></div>
+                        <button id="upgrade21" onclick="buyUpgrade21(); openContainer(3)">
+                         Cost: 1 золота <span class="upgradeCost" id="upgradeCost21"></span>
+                         Открыть контейнер (3 предмета)
+                        </button>
 
-                    <div id="containerInfo3" class="container-info"></div>
-                    <div id="result3" class="result-container result-container10"></div>
+                        <!-- <button onclick="openContainer(3)">Открыть контейнер (3 предмета)</button> -->
+                        <div id="containerPopup" class="container-popup">
+                            <div id="containerPopupContent" class="container-popup-content">
+                        <div id="containerInfo" class="container-info"></div>
+                        <div id="result" class="result-container"></div>
 
-                    <div id="rewardInfo" class="reward-info"></div>
-                    <button id="closePopupButton">Собрать ресурсы</button>
+                            
+                        <div id="containerInfo2" class="container-info"></div>
+                        <div id="result2" class="result-container result-container5"></div>
 
-                   
+                        <div id="containerInfo3" class="container-info"></div>
+                        <div id="result3" class="result-container result-container10"></div>
+
+                        <div id="rewardInfo" class="reward-info"></div>
+                        <button id="closePopupButton">Собрать ресурсы</button>
+
+                            
+                            </div>
                         </div>
                     </div>
-                </div>
-            <div class="hidden22">
-                <div class="container">
-                    <div class="chestIMG"> 
-                        <img src="chest.jpeg" alt="chest" style="width: 90px;">
-                    </div>
-                    
-                        
-                    <button id="upgrade22" onclick="buyUpgrade22(); openContainer(5)">Открыть контейнер (5 предметов)
-                        Cost: 2 золота <span class="upgradeCost" id="upgradeCost22"></span></button>
-                    </div>
-                    
-                    
-                    
-                </div>
-            <div class="hidden23">
-                <div class="container">
-                    <div class="chestIMG"> 
-                        <img src="chest.jpeg" alt="chest" style="width: 90px;">
-                    </div>
-                    
-                    <button id="upgrade23" onclick="buyUpgrade23(); openContainer(10)">Открыть контейнер (10 предметов)
-                        Cost: 3 золота <span class="upgradeCost" id="upgradeCost23"></span></button>
-                    </div>
-                    
-                </div>
+                <div class="hidden22">
+                    <div class="container">
+                        <div class="chestIMG"> 
+                            <img src="chest.jpeg" alt="chest" style="width: 90px;">
+                        </div>
 
-                <div class="hidden25">        
+
+                        <button id="upgrade22" onclick="buyUpgrade22(); openContainer(5)">Открыть контейнер (5 предметов)
+                            Cost: 2 золота <span class="upgradeCost" id="upgradeCost22"></span></button>
+                        </div>
+
+
+
+                </div>
+                <div class="hidden23">
+                    <div class="container">
+                        <div class="chestIMG"> 
+                            <img src="chest.jpeg" alt="chest" style="width: 90px;">
+                        </div>
+
+                        <button id="upgrade23" onclick="buyUpgrade23(); openContainer(10)">Открыть контейнер (10 предметов)
+                            Cost: 3 золота <span class="upgradeCost" id="upgradeCost23"></span></button>
+                        </div>
+
+                    </div>
+            </div>
+            
+            <div class="hidden25">
+                <div class="OpenPack">        
                     <button id="upgrade25" onclick="buyUpgrade25(); openChest()">
        
                         <div class="up25">
@@ -530,6 +534,7 @@
                             </div>
                     </button>
                 </div>
+            </div>
                 <!-- Popup для отображения наград -->
         <div id="rewardPopup" class="popup">
             <h2>Награды</h2>
